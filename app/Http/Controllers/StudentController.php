@@ -73,7 +73,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view('edit', compact('student'));
     }
 
     /**
@@ -85,7 +86,22 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+        'firstname' => 'required',
+        'lastname' => 'required',
+        'email' => 'required',
+        'phone' => 'required'
+        ]);
+
+        $student = Student::find($id);
+        
+        $student->first_name = $request->firstname;
+        $student->last_name = $request->lastname;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        $student->save();
+
+        return redirect(route('home'))->with('successMsg', 'Student updated successfully!');
     }
 
     /**

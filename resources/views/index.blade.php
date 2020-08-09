@@ -30,7 +30,15 @@
 			<td>{{ $student->last_name }}</td>
 			<td>{{ $student->email }}</td>
 			<td>{{ $student->phone }}</td>
-			<td>edit | delete</td>
+			<td>
+				<a
+					class="btn btn-raised btn-primary btn-sm" 
+					href="{{ route('edit', $student->id) }}"><i class="fas fa-edit"></i></a>
+				| 
+				<a
+					class="btn btn-raised btn-danger btn-sm"  
+					href="{{ route('update', $student->id) }}"><i class="fas fa-trash-alt"></i></a>
+			</td>
 		</tr>
 		@endforeach
 	</tbody>
