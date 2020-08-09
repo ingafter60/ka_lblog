@@ -1,13 +1,13 @@
+<!-- VIEWS/index.blade.php -->
 
 @extends('layouts.app')
 @section('content')
-<!-- Start your project here-->  
-  <div style="height: 100vh">
-    <div class="flex-center flex-column">
-      <h1 class="text-hide animated fadeIn mb-4" style="background-image: url('https://mdbootstrap.com/img/logo/mdb-transparent-250px.png'); width: 250px; height: 90px;">MDBootstrap</h1>
-      <h5 class="animated fadeIn mb-3">Thank you for using our product. We're glad you're with us.</h5>
-      <p class="animated fadeIn text-muted">MDB Team</p>
-    </div>
-  </div>
-  <!-- End your project here-->
+<div class="container">
+	<h1>Home page</h1>
+	@if (session('successMsg'))
+		<div class="alert alert-success" role="alert">
+			{{ session('successMsg') }}
+		</div>
+	@endif
+</div>
 @endsection
